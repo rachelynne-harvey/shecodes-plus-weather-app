@@ -1,54 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Display:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="src/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Serif+Display:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="src/styles.css" />
     <title>JustWeather App</title>
-</head>
-<body>
+  </head>
+  <body>
+    <div class="container my-5">
+      <div
+        class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg"
+      >
+        <div class="col-lg-7 p-3 p-lg-5 pt-lg-3">
+          <h1 class="just-title text-center text-break">
+            <em>just</em
+            ><span class="weather-title text-center"
+              ><strong>weather</strong></span
+            >
+          </h1>
+          <p class="lead text-center">
+            see the weather wherever you want - and <strong>just</strong> that.
+          </p>
+          <br />
+          <h4 id="current-city"><em>Seattle</em></h4>
 
-<div class="container my-5">
-    <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
-      <div class="col-lg-7 p-3 p-lg-5 pt-lg-3">
-        <h1 class="just-title text-center text-break"><em>just</em><span class='weather-title text-center'><strong>weather</strong></span></h1> 
-        <p class="lead text-center">see the weather wherever you want - and <strong>just</strong> that.</p>
-        <br/>
-        <h4 id="current-city"><em>Seattle</em></h4>
-        
-            <h6><em> the current temperature is </em> <span id="current-temp">42</span>°F.
-            <p class='temperature'><em>the high for today is </em> <span id="high-degrees">58</span>°F.
-            <em>the low for today is </em> <span id="low-degrees">42</span>°F.
-            <p class='wind-speed'><em>the wind speed is </em> <span id="wind-speed">5</span>km/h.
-            <em>the humidity is </em><span id="humidity">17</span>%.
-            <p class='current-conditions'><em>finally, the current conditions are best described as </em><span id="current-conditions">clear</span>.</p>
-        </h6>
+          <h6>
+            <em> the current temperature is </em>
+            <span id="current-temp">42</span>°F.
+            <p class="temperature">
+              <em>the high for today is </em>
+              <span id="high-degrees">58</span>°F.
+              <em>the low for today is </em> <span id="low-degrees">42</span>°F.
+            </p>
 
-        <br/>
-     <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-        <button type="button" class="btn btn-outline-secondary .text-nowrap" id="current-location-button">current location</button>
-        
-            <input type="search" id="city-input" class="form-control" placeholder="find the weather in a new city..." aria-label="search">
-            <button class="btn btn-outline-secondary" type="submit" id="menu-submit">search</button>
-     </div><br/>
-      <h5 class='text-center' id='temperature-convert'><a href="">convert temperature</a></h5>
-      <h5 class='text-center'> <a href="https://github.com/rachelynne-harvey/shecodes-plus-weather-app">open source code</a> by <a href="https://www.shecodes.io/graduates/54116-rachel-harvey">harvey</a></h5>
+            <p class="wind-speed">
+              <em>the wind speed is </em> <span id="wind-speed">5</span>km/h.
+              <em>the humidity is </em><span id="humidity">17</span>%.
+            </p>
+
+            <p class="current-conditions">
+              <em>finally, the current conditions are best described as </em
+              ><span id="current-conditions">clear</span>.
+            </p>
+          </h6>
+
+          <br />
+          <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+            <button
+              type="button"
+              class="btn btn-outline-secondary .text-nowrap"
+              id="current-location-button"
+            >
+              current location
+            </button>
+
+            <input
+              type="search"
+              id="city-input"
+              class="form-control"
+              placeholder="find the weather in a new city..."
+              aria-label="search"
+            />
+            <button
+              class="btn btn-outline-secondary"
+              type="submit"
+              id="menu-submit"
+            >
+              search
+            </button>
+          </div>
+          <br />
+          <h5 class="text-center" id="temperature-convert">
+            <a href="">convert temperature</a>
+          </h5>
+          <h5 class="text-center">
+            <a
+              href="https://github.com/rachelynne-harvey/shecodes-plus-weather-app"
+              >open source code</a
+            >
+            by
+            <a href="https://www.shecodes.io/graduates/54116-rachel-harvey"
+              >harvey</a
+            >
+          </h5>
+        </div>
+      </div>
+
+      <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+        crossorigin="anonymous"
+      ></script>
+      <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
+      <script src="src/script.js"></script>
     </div>
-</div>
-
-
-
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
-<script src="src/script.js"></script>
-</body>
-
-
+  </body>
 </html>
