@@ -53,12 +53,16 @@ function convertFahrenheitTemperature (event) {
   let currentFahrenheit = document.querySelector('#current-temp');
   let highFahrenheit = document.querySelector('#high-degrees');
   let lowFahrenheit = document.querySelector('#low-degrees');
-  let unitElement = document.querySelector('#unit');
+   let currentUnit = document.querySelector("#current-unit");
+   let highUnit = document.querySelector("#high-unit");
+   let lowUnit = document.querySelector("#low-unit");
   let fahrenheitCurrent = (currentCelsius * 9) / 5 + 32;
   let fahrenheitHigh = (highCelsius * 9) / 5 + 32;
   let fahrenheitLow = (lowCelsius * 9) / 5 + 32;
   alert('changing to fahrenheit right now!');
-  unitElement.innerHTML = ('F')
+  currentUnit.innerHTML = ("F");
+  highUnit.innerHTML = ("F");
+  lowUnit.innerHTML = ("F");
   currentFahrenheit.innerHTML = Math.round(fahrenheitCurrent);
   highFahrenheit.innerHTML = Math.round(fahrenheitHigh);
   lowFahrenheit.innerHTML = Math.round(fahrenheitLow);
@@ -70,12 +74,16 @@ function convertCelsiusTemperature (event) {
   let currentCelsiusTemp = document.querySelector('#current-temp');
   let highCelsiusTemp = document.querySelector('#high-degrees');
   let lowCelsiusTemp = document.querySelector('#low-degrees');
-  let unitElement = document.querySelector('#unit');
+  let currentUnit = document.querySelector("#current-unit");
+  let highUnit = document.querySelector("#high-unit");
+  let lowUnit = document.querySelector("#low-unit");
   let celsiusCurrent = currentCelsius;
   let celsiusHigh = highCelsius;
   let celsiusLow = lowCelsius;
   alert ('changing to celsius right now!');
-  unitElement.innerHTML = ('C');
+  currentUnit.innerHTML = ("C");
+  highUnit.innerHTML = ("C");
+  lowUnit.innerHTML = ("C");
   currentCelsiusTemp.innerHTML = Math.round(celsiusCurrent);
   highCelsiusTemp.innerHTML = Math.round(celsiusHigh);
   lowCelsiusTemp.innerHTML = Math.round(celsiusLow);
