@@ -17,6 +17,7 @@ function alertChange(response) {
   let currentConditions = document.querySelector("span#current-conditions");
   let humidity = document.querySelector("span#humidity");
   let windSpeed = document.querySelector("span#wind-speed");
+  let weatherIcon = document.querySelector("#icon");
   alert(`let's find out the weather in ${response.data.city}, shall we?`);
   console.log(response);
   cityChange.innerHTML = response.data.city;
@@ -26,6 +27,7 @@ function alertChange(response) {
   currentConditions.innerHTML = response.data.daily[0].condition.description;
   humidity.innerHTML = response.data.daily[0].temperature.humidity;
   windSpeed.innerHTML = Math.round(response.data.daily[0].wind.speed);
+  weatherIcon.setAttribute("src", response.data.daily[0].condition.icon_url);
 }
 
 // find current coordinates for user
