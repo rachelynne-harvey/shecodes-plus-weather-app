@@ -4,7 +4,7 @@ function changeCity(event) {
   let cityInput = document.querySelector("#city-input");
   let city = cityInput.value;
   let apiKey = "a04dt03595dcf73o40ef02782a9109ba";
-  let url = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=imperial`;
+  let url = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
   axios.get(url).then(alertChange);
 }
 
@@ -41,7 +41,7 @@ function findLocation(position) {
   let apiKey = "a04dt03595dcf73o40ef02782a9109ba";
   let lat = position.coords.latitude;
   let lon = position.coords.longitude;
-  let url = `https://api.shecodes.io/weather/v1/forecast?lon=${lon}&lat=${lat}&key=${apiKey}&units=imperial`;
+  let url = `https://api.shecodes.io/weather/v1/forecast?lon=${lon}&lat=${lat}&key=${apiKey}&units=metric`;
   axios.get(url).then(alertChange);
 }
 
