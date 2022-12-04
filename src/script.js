@@ -50,35 +50,3 @@ currentLocationLink.addEventListener("click", currentLocation);
 // starts function calls when you click on 'search' button
 let menuSearch = document.querySelector("#menu-submit");
 menuSearch.addEventListener("click", changeCity);
-
-/* // changes saved cities in  menu bar to current temp and city upon click
-function newYorkClick() {
-  let url =
-    "https://api.openweathermap.org/data/2.5/weather?q=new%20york&appid=7fc03e8d4259be6572769ab994d325bb&units=imperial";
-  axios.get(url).then(alertChange);
-}
-let newYork = document.querySelector("#new-york");
-newYork.addEventListener("click", newYorkClick);
-
-function dallasClick() {
-  let url =
-    "https://api.openweathermap.org/data/2.5/weather?q=dallas&appid=7fc03e8d4259be6572769ab994d325bb&units=imperial";
-  axios.get(url).then(alertChange);
-}
-let dallas = document.querySelector("#dallas");
-dallas.addEventListener("click", dallasClick);
-
-function sanDiegoClick() {
-  let url =
-    "https://api.openweathermap.org/data/2.5/weather?q=san%20diego&appid=7fc03e8d4259be6572769ab994d325bb&units=imperial";
-  axios.get(url).then(alertChange);
-}
-let sanDiego = document.querySelector("#san-diego");
-sanDiego.addEventListener("click", sanDiegoClick);
-
-function seattleClick() {
-  let url = 'https://api.openweathermap.org/data/2.5/weather?q=seattle&appid=7fc03e8d4259be6572769ab994d325bb&units=imperial';
-  axios.get(url).then(alertChange);
-}
-let seattle = document.querySelector("#seattle");
-seattle.addEventListener("click", seattleClick); */
