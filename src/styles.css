@@ -45,3 +45,22 @@ p {
     font-weight: 900;
 }
 
+.weather-forecast{
+    margin-top: 20px;
+    text-align: center;
+    color: black;
+    font-size: 14px;
+}
+
+.weather-forecast-date{
+    opacity: 0.5;
+    
+}
+
+.weather-forecast-temperature{
+    font-size: 10px;
+}
+
+.weather-forecast-temp-min{
+    opacity: 0.5;
+}
