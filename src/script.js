@@ -4,14 +4,14 @@ function changeCity(event) {
   let cityInput = document.querySelector("#city-input");
   let city = cityInput.value;
   let apiKey = "a04dt03595dcf73o40ef02782a9109ba";
-  let url = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
+  let url = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=imperial`;
   axios.get(url).then(alertChange);
 }
 
 //finds the forecast of a searched location
 function getForecast(coordinates) {
   let apiKey = "a04dt03595dcf73o40ef02782a9109ba";
-  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${coordinates.longitude}&lat=${coordinates.latitude}&key=${apiKey}`;
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${coordinates.longitude}&lat=${coordinates.latitude}&key=${apiKey}&units=imperial`;
   axios.get(apiUrl).then(displayForecast);
 }
 
@@ -48,56 +48,9 @@ function currentLocation(event) {
 // shows weather for current user location
 function findLocation(position) {
   let apiKey = "a04dt03595dcf73o40ef02782a9109ba";
-  let url = `https://api.shecodes.io/weather/v1/forecast?lon=${coordinates.longitude}&lat=${coordinates.latitude}&key=${apiKey}&units=metric`;
+  let url = `https://api.shecodes.io/weather/v1/forecast?lon=${coordinates.longitude}&lat=${coordinates.latitude}&key=${apiKey}&units=imperial`;
   axios.get(url).then(alertChange);
 }
-
-// converts temperature from celsius to fahrenheit
-function convertFahrenheitTemperature (event) {
-  event.preventDefault();
-  let currentFahrenheit = document.querySelector('#current-temp');
-  let highFahrenheit = document.querySelector('#high-degrees');
-  let lowFahrenheit = document.querySelector('#low-degrees');
-   let currentUnit = document.querySelector("#current-unit");
-   let highUnit = document.querySelector("#high-unit");
-   let lowUnit = document.querySelector("#low-unit");
-  let fahrenheitCurrent = (currentCelsius * 9) / 5 + 32;
-  let fahrenheitHigh = (highCelsius * 9) / 5 + 32;
-  let fahrenheitLow = (lowCelsius * 9) / 5 + 32;
-  alert('changing to fahrenheit right now!');
-  currentUnit.innerHTML = ("F");
-  highUnit.innerHTML = ("F");
-  lowUnit.innerHTML = ("F");
-  currentFahrenheit.innerHTML = Math.round(fahrenheitCurrent);
-  highFahrenheit.innerHTML = Math.round(fahrenheitHigh);
-  lowFahrenheit.innerHTML = Math.round(fahrenheitLow);
-}
-
-// converts temperature from fahrenheit to celsius
-function convertCelsiusTemperature (event) {
-  event.preventDefault();
-  let currentCelsiusTemp = document.querySelector('#current-temp');
-  let highCelsiusTemp = document.querySelector('#high-degrees');
-  let lowCelsiusTemp = document.querySelector('#low-degrees');
-  let currentUnit = document.querySelector("#current-unit");
-  let highUnit = document.querySelector("#high-unit");
-  let lowUnit = document.querySelector("#low-unit");
-  let celsiusCurrent = currentCelsius;
-  let celsiusHigh = highCelsius;
-  let celsiusLow = lowCelsius;
-  alert ('changing to celsius right now!');
-  currentUnit.innerHTML = ("C");
-  highUnit.innerHTML = ("C");
-  lowUnit.innerHTML = ("C");
-  currentCelsiusTemp.innerHTML = Math.round(celsiusCurrent);
-  highCelsiusTemp.innerHTML = Math.round(celsiusHigh);
-  lowCelsiusTemp.innerHTML = Math.round(celsiusLow);
-}
-
-// establishes celsius temperature to use in functions
-let currentCelsius = null;
-let highCelsius = null;
-let lowCelsius = null;
 
 // starts function calls when you click on 'current location' button
 let currentLocationLink = document.querySelector("#current-location-button");
@@ -106,14 +59,6 @@ currentLocationLink.addEventListener("click", currentLocation);
 // starts function calls when you click on 'search' button
 let menuSearch = document.querySelector("#menu-submit");
 menuSearch.addEventListener("click", changeCity);
-
-// starts function calls to convert to fahrenheit
-let convertCelsius = document.querySelector('#fahrenheit-type');
-convertCelsius.addEventListener('click', convertFahrenheitTemperature);
-
-// starts function calls to convert to celsius
-let convertFahrenheit = document.querySelector('#celsius-type');
-convertFahrenheit.addEventListener('click', convertCelsiusTemperature)
 
 // finds date from searched city
 function formatDate(timestamp) {
