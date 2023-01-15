@@ -36,6 +36,7 @@ function alertChange(response) {
   humidity.innerHTML = response.data.daily[0].temperature.humidity;
   windSpeed.innerHTML = Math.round(response.data.daily[0].wind.speed);
   weatherIcon.setAttribute('src', response.data.daily[0].condition.icon_url);
+  getForecast(response.data.coordinates);
 }
 
 // find current coordinates for user
