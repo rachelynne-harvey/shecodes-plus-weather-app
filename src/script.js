@@ -133,3 +133,12 @@ function displayForecast(response) {
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
 }
+
+//autofills information on page
+function search(city) {
+  let apiKey = "a04dt03595dcf73o40ef02782a9109ba";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=imperial`;
+  axios.get(apiUrl).then(alertChange);
+}
+
+search("seattle");
