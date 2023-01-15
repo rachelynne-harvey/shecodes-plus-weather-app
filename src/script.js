@@ -47,9 +47,7 @@ function currentLocation(event) {
 // shows weather for current user location
 function findLocation(position) {
   let apiKey = "a04dt03595dcf73o40ef02782a9109ba";
-  let lat = position.coords.latitude;
-  let lon = position.coords.longitude;
-  let url = `https://api.shecodes.io/weather/v1/forecast?lon=${lon}&lat=${lat}&key=${apiKey}&units=metric`;
+  let url = `https://api.shecodes.io/weather/v1/forecast?lon=${coordinates.longitude}&lat=${coordinates.latitude}&key=${apiKey}&units=metric`;
   axios.get(url).then(alertChange);
 }
 
