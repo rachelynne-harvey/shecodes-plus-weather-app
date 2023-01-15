@@ -8,7 +8,14 @@ function changeCity(event) {
   axios.get(url).then(alertChange);
 }
 
-//alerts that you are changing information after submit and then changes it
+//finds the forecast of a searched location
+function getForecast(coordinates) {
+  let apiKey = "a04dt03595dcf73o40ef02782a9109ba";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${coordinates.longitude}&lat=${coordinates.latitude}&key=${apiKey}`;
+  axios.get(apiUrl).then(displayForecast);
+}
+
+//finds a city, alerts it, and returns all information on page
 function alertChange(response) {
   let cityChange = document.querySelector("h4");
   let currentTemp = document.querySelector('span#current-temp');
@@ -18,7 +25,6 @@ function alertChange(response) {
   let humidity = document.querySelector('span#humidity');
   let windSpeed = document.querySelector('span#wind-speed');
   let weatherIcon = document.querySelector('#icon');
-  alert(`let's find out the weather in ${response.data.city}, shall we?`);
   currentCelsius = Math.round(response.data.daily[0].temperature.day);
   highCelsius = Math.round(response.data.daily[0].temperature.maximum);
   lowCelsius = Math.round(response.data.daily[0].temperature.minimum);
@@ -109,3 +115,77 @@ convertCelsius.addEventListener('click', convertFahrenheitTemperature);
 // starts function calls to convert to celsius
 let convertFahrenheit = document.querySelector('#celsius-type');
 convertFahrenheit.addEventListener('click', convertCelsiusTemperature)
+
+// finds date from searched city
+function formatDate(timestamp) {
+  let date = new Date(timestamp);
+  let hours = date.getHours();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+  let minutes = date.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+
+  let days = [
+    "sunday",
+    "monday",
+    "tuesday",
+    "wednesday",
+    "thursday",
+    "friday",
+    "saturday",
+  ];
+  let day = days[date.getDay()];
+  return `${day} ${hours}:${minutes}`;
+}
+
+// converts date array response into day name
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = [
+    "sunday",
+    "monday",
+    "tuesday",
+    "wednesday",
+    "thursday",
+    "friday",
+    "saturday",
+  ];
+
+  return days[day];
+}
+
+// displays forecast
+function displayForecast(response) {
+  let forecast = response.data.daily;
+  let forecastElement = document.querySelector("#weather-forecast");
+  let forecastHTML = `<div class='row'>`;
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 5) {
+      forecastHTML =
+        forecastHTML +
+        `
+    <div class = 'col-2'>
+      <div class="weather-forecast-date">${formatDay(forecastDay.time)}</div>
+        <img src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${
+          forecastDay.condition.icon
+        }.png"
+          alt=""
+          width="42">
+         <div class="weather-forecast-temperature">
+          <span class='weather-forecast-temp-max'>${Math.round(
+            forecastDay.temperature.maximum
+          )}°</span>
+            <span class='weather-forecast-temp-min'>${Math.round(
+              forecastDay.temperature.minimum
+            )}°</span>
+          </div>   
+      </div>`;
+    }
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
